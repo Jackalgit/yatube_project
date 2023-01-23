@@ -1,27 +1,27 @@
 {% extends 'base.html' %}
 {% block content %}
-{% for post in posts %}
-  <main>
-    <!-- класс py-5 создает отступы сверху и снизу блока -->
-    <div class="container py-5">
-      <h1>Лев Толстой – зеркало русской революции.</h1>
-      <p>
-        Группа тайных поклонников графа.
-      </p>
-      <article>
-        <ul>
-          <li>
-            Автор: {{ post.author.get_full_name }}
-          </li>
-          <li>
-            Дата публикации: {{ post.pub_date|date:"d E Y" }}
-          </li>
-        </ul>
-        <p>{{ post.text }}</p>
-      </article>
-      {% if not forloop.last %}<hr>{% endif %}
-      <!-- под последним постом нет линии -->
-    </div>
-  </main>
-{% endfor %}
+  {% for post in posts %}
+    <main>
+      <!-- класс py-5 создает отступы сверху и снизу блока -->
+      <div class="container py-5">
+        <h1>Лев Толстой – зеркало русской революции.</h1>
+        <p>
+          Группа тайных поклонников графа.
+        </p>
+        <article>
+          <ul>
+            <li>
+              Автор: {{ post.author.get_full_name }}
+            </li>
+            <li>
+              Дата публикации: {{ post.pub_date|date:"d E Y" }}
+            </li>
+          </ul>
+          <p>{{ post.text }}</p>
+        </article>
+        {% if not forloop.last %}<hr>{% endif %}
+        <!-- под последним постом нет линии -->
+      </div>
+    </main>
+  {% endfor %}
 {% endblock %}
